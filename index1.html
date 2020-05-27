@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDER</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="btn">+</button>
+    <input id="inputamount" type="text"></input>
+    <script>
+        // init totalexpense 0
+        let totalexpense=0;
+        // on button click add total expense to input amount
+        function total()
+        {
+         // read value from inputAmount
+const inelement=document.querySelector("#inputamount");
+const textamount=inelement.value;
+console.log({textamount})
+         //convert it to number
+         const expe=parseInt(textamount, 10);
+          console.log({expe})
+         //add that value to totalexpense
+          totalexpense=totalexpense + expe
+     console.log({totalexpense});
+        }
+        //get the button element
+        const element = document.querySelector("#btn");
+        // console.log(element)
+        //listen to click event
+        element.addEventListener("click", total, false);
+
+
+    </script>
+</body>
+
+</html>

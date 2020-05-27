@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDER</title>
+    <style>
+        body
+        {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+
+        }    
+        </style>
+        
+</head>
+<body>
+    <button id ="btn">+</button>
+    <input></input>
+    <script>
+         //take a number start from zero
+            let counter = 0;
+
+            // fun to inc a number
+
+            function counterInc() {
+                //every click incr
+                counter = counter + 1;
+                console.log(counter);
+            }
+        //get the button element
+        const element = document.querySelector("#btn");
+        // console.log(element)
+        //listen to click event
+         element.addEventListener("click",counterInc,false);
+       
+    
+    </script>
+</body>
+</html>
