@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDER</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 id="headingel"></h1>
+    <button id="btn">+</button>
+    <input id="inputamount" type="text"></input>
+    <input id="inputdesele" type="text">
+    <div id="expensetable"></div>
+
+    <script>
+        // init totalexpense 0
+        let totalexpense = 0;
+        // get the heading elem
+        const headingele = document.querySelector("#headingel")
+        //ref to imput amount
+        const inelement = document.querySelector("#inputamount");
+        //ref to inputdesel
+        const inputde = document.querySelector("#inputdesele")
+        //ref to table
+        const expetable = document.querySelector("#expensetable");
+        // totalexpe arr
+        const totalexpearr = [];
+        //add a line 
+        const sometext = `Total expense is: ${totalexpense}`
+        //add expense to head ele
+        headingele.textContent = sometext;
+        // on button click add total expense to input amount
+        function total() {
+            //expe object
+            const expeobj = {};
+            // read value from inputAmount
+            const textamount = inelement.value;
+            // read value from inputdeselem
+            const inputdesval = inputde.value;
+
+            //convert it to number
+            const expe = parseInt(textamount, 10);
+            //vreate an obejct of amount and descr
+            expeobj.amount = textamount;
+            expeobj.desc = inputdesval;
+            //push obj to arr
+            totalexpearr.push(expeobj);
+            //add that value to totalexpense
+            totalexpense = totalexpense + expe
+
+            const some = `TOTAL is : ${totalexpense}`
+            //add expense to head ele
+            headingele.textContent = some
+
+            // create map wihich return array<string> because totalexparr  is arr and <div> lien in string
+
+           
+            const allexpensehtml=totalexpearr.map(expeobj => 
+            {return `<div>${expeobj.amount} ::${expeobj.desc}</div>`})
+           // create string by join operations and if we nothing put in argument then it gives , so we given ("")
+           const stringexpese=allexpensehtml.join("")
+            
+            expetable.innerHTML = stringexpese
+            console.clear();
+            console.table(totalexpearr)
+        }
+        //get the button element
+        const element = document.querySelector("#btn");
+        // console.log(element)
+        //listen to click event
+        element.addEventListener("click", total, false);
+
+
+    </script>
+</body>
+
+</html>
+
+
+
